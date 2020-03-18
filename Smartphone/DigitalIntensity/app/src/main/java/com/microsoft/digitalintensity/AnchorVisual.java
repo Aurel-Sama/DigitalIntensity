@@ -141,7 +141,7 @@ class AnchorVisual {
         switch (shape) {
             case Cube:
                 ModelRenderable.builder()
-                        .setSource(context, Uri.parse("arrow.sfb"))
+                        .setSource(context, Uri.parse("heart.sfb"))
                         .build()
                         .thenAccept(render -> {
                             transformableNode.setLocalScale(new Vector3(5f,5f,5f));
