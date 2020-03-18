@@ -1,0 +1,123 @@
+{
+  animations: [
+    {
+      path: 'sampledata/arrow.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'Material_95',
+      parameters: [
+        {
+          baseColor: [
+                          1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: '1073',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'Material_97',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: '1082',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'Color',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/arrow.fbx',
+    name: 'arrow',
+    recenter: 'root',
+    scale: 14.439044000000001,
+  },
+  samplers: [
+    {
+      file: 'sampledata\\arrow.fbm\\1086.png',
+      name: '1086',
+      pipeline_name: 'arrow.fbm\\1086.png',
+    },
+    {
+      file: 'sampledata\\arrow.fbm\\1073.png',
+      name: '1073',
+      pipeline_name: 'arrow.fbm\\1073.png',
+    },
+    {
+      file: 'sampledata\\arrow.fbm\\1082.png',
+      name: '1082',
+      pipeline_name: 'arrow.fbm\\1082.png',
+    },
+    {
+      file: 'sampledata\\arrow.fbm\\1077.png',
+      name: '1077',
+      pipeline_name: 'arrow.fbm\\1077.png',
+    },
+  ],
+  version: '0.54:2',
+}
