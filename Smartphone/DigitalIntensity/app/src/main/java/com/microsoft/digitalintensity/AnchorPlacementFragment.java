@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -24,10 +25,11 @@ import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.core.Pose;
 import com.google.ar.sceneform.ux.ArFragment;
+import com.google.ar.sceneform.ux.BaseArFragment;
 
 public class AnchorPlacementFragment extends Fragment {
     private ArFragment arFragment;
-    private AnchorVisual visual;
+    private AnchorVisual visual = null;
     private AnchorPlacementListener listener;
 
     private TextView hintText;
@@ -72,6 +74,32 @@ public class AnchorPlacementFragment extends Fragment {
         confirmPlacementButton.setOnClickListener(this::onConfirmPlacementClicked);
         ArrayAdapter<ComponentType> adapter = new ArrayAdapter<>(arFragment.getContext(), android.R.layout.simple_spinner_dropdown_item, ComponentType.values());
         dropdownComponent.setAdapter(adapter);
+        dropdownComponent.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(visual!=null){
+                    visual.destroy();
+                    visual = null;
+
+                    Anchor localAnchor = savedHitResult.getTrackable().createAnchor(
+                            savedHitResult.getHitPose().compose(Pose.makeTranslation(0, translation, 0)));
+                    visual = new AnchorVisual(arFragment, localAnchor);
+                    visual.setContext(arFragment.getContext());
+                    visual.setMovable(true);
+                    visual.setShape(getSelectedShape());
+                    visual.setComponentType((ComponentType) dropdownComponent.getSelectedItem());
+                    visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase()+".sfb");
+                    visual.render(arFragment);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         translateSK.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
@@ -88,7 +116,7 @@ public class AnchorPlacementFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
                 // TODO Auto-generated method stub
 
-                translation=translateSK.getProgress()/25f;
+                translation=translateSK.getProgress()/10f;
                 if(visual!=null){
                     visual.destroy();
                     visual = null;
@@ -142,6 +170,7 @@ public class AnchorPlacementFragment extends Fragment {
         visual.setMovable(true);
         visual.setShape(getSelectedShape());
         visual.setComponentType((ComponentType) dropdownComponent.getSelectedItem());
+        visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase()+".sfb");
         visual.render(arFragment);
 
 

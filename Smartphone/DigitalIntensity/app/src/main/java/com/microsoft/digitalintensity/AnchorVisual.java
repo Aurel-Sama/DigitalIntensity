@@ -41,9 +41,12 @@ class AnchorVisual {
     private Scene scene;
     private Vector3 previousPosition;
     private Quaternion previousRotation;
-    private String anchor = "heart.sfb";
 
+    private String anchor;
 
+    public void setAnchor (String anchor) {
+        this.anchor = anchor;
+    }
 
     public ComponentType getComponentType() {
         return componentType;
