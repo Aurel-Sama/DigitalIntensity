@@ -116,7 +116,7 @@ public class AnchorPlacementFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
                 // TODO Auto-generated method stub
 
-                translation=translateSK.getProgress()/10f;
+                translation=translateSK.getProgress()/35f;
                 if(visual!=null){
                     visual.destroy();
                     visual = null;
@@ -127,6 +127,8 @@ public class AnchorPlacementFragment extends Fragment {
                     visual.setContext(arFragment.getContext());
                     visual.setMovable(true);
                     visual.setShape(getSelectedShape());
+                    visual.setComponentType((ComponentType) dropdownComponent.getSelectedItem());
+                    visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase()+".sfb");
                     visual.render(arFragment);
 
                 }
