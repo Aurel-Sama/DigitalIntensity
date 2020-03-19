@@ -37,10 +37,11 @@ class AnchorVisual {
     private Context context;
     private Shape shape = Shape.Cube;
     private View view;
-    private ComponentType componentType = ComponentType.FAN;
+    private ComponentType componentType = ComponentType.HEART;
     private Scene scene;
     private Vector3 previousPosition;
     private Quaternion previousRotation;
+    private String anchor = "heart.sfb";
 
 
 
@@ -141,7 +142,7 @@ class AnchorVisual {
         switch (shape) {
             case Cube:
                 ModelRenderable.builder()
-                        .setSource(context, Uri.parse("heart.sfb"))
+                        .setSource(context, Uri.parse(this.anchor))
                         .build()
                         .thenAccept(render -> {
                             transformableNode.setLocalScale(new Vector3(5f,5f,5f));
@@ -157,67 +158,6 @@ class AnchorVisual {
             default:
                 throw new IllegalStateException("Invalid shape");
         }
-
-    }
-
-    private void displayText(){
-        Typeface typeface = ResourcesCompat.getFont(context, R.font.aldrich);
-
-        Button valuesBtn = view.findViewById(R.id.values_button);
-        switch (componentType){
-            case FAN:
-                valuesBtn.setOnClickListener(view1 -> {
-                    FanFragment fanFragment = new FanFragment();
-                    FragmentHelper.isAlreadyOpen((FragmentActivity)context);
-                    FragmentHelper.pushFragment((FragmentActivity)context, fanFragment);
-                });
-                break;
-            case PUMP:
-                valuesBtn.setOnClickListener(view1 -> {
-                    PumpFragment pumpFragment = new PumpFragment();
-                    FragmentHelper.isAlreadyOpen((FragmentActivity)context);
-                    FragmentHelper.pushFragment((FragmentActivity)context, pumpFragment);
-                });
-                break;
-            case VALVE:
-                valuesBtn.setOnClickListener(view1 -> {
-                    ValveFragment valveFragment = new ValveFragment();
-                    FragmentHelper.isAlreadyOpen((FragmentActivity)context);
-                    FragmentHelper.pushFragment((FragmentActivity)context, valveFragment);
-                });
-                break;
-            case SENSOR:
-                valuesBtn.setOnClickListener(view1 -> {
-                    SensorFragment sensorFragment = new SensorFragment();
-                    FragmentHelper.isAlreadyOpen((FragmentActivity)context);
-                    FragmentHelper.pushFragment((FragmentActivity)context, sensorFragment);
-                });
-                break;
-            default :
-                break;
-        }
-
-
-        TextView componentNameTV = view.findViewById(R.id.component_name);
-        TextView componentTypeTV = view.findViewById(R.id.component_type);
-        valuesBtn.setTypeface(typeface);
-        componentNameTV.setTypeface(typeface);
-        componentTypeTV.setTypeface(typeface);
-        componentNameTV.setText(cloudAnchor.getAppProperties().get("Message"));
-        componentTypeTV.setText(componentType.toString());
-
-
-
-        ViewRenderable.builder()
-                .setView(context, view)
-                .build()
-                .thenAccept(renderable -> {
-                    transformableNode.setLocalScale(new Vector3(0.30f,0.30f,0.30f));
-                    transformableNode.setRenderable(renderable);
-
-                });
-
-
 
     }
 
@@ -245,7 +185,6 @@ class AnchorVisual {
                 Vector3 direction = Vector3.subtract(cameraPosition, objectPosition);
                 Quaternion lookRotation = Quaternion.lookRotation(direction, Vector3.up());
                 transformableNode.setWorldRotation(lookRotation);
-                displayText();
 
             }
 

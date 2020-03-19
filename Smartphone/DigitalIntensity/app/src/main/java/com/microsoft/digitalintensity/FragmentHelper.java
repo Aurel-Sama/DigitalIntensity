@@ -27,16 +27,6 @@ public class FragmentHelper {
         switchToFragment(activity, fragment, false);
     }
 
-    public static void isAlreadyOpen(FragmentActivity activity){
-        FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        for(Fragment fragment : fragmentManager.getFragments()){
-            if(fragment instanceof FanFragment || fragment instanceof ValveFragment || fragment instanceof SensorFragment || fragment instanceof PumpFragment){
-                backToPreviousFragment(activity);
-            }
-
-        }
-    }
-
     public static void pushFragment(FragmentActivity activity, Fragment fragment) {
         switchToFragment(activity, fragment, true);
     }

@@ -63,9 +63,4 @@ sceneform.asset('sampledata/arrow.fbx',
 sceneform.asset('sampledata/heart.fbx',
         'default',
         'sampledata/heart.sfa',
-        'src/main/assets/Love')
-
-sceneform.asset('sampledata/heart.fbx',
-        'default',
-        'sampledata/heart.sfa',
         'src/main/assets/heart')

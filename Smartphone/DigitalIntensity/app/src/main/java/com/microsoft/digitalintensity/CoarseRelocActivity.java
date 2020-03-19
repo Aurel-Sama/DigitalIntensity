@@ -193,49 +193,6 @@ public class CoarseRelocActivity extends FragmentActivity
 
             if(av!=null){
                 Pose previousPose = av.getLocalAnchor().getPose().compose(Pose.makeTranslation(10, 0, 0));
-                //av.destroy();
-                //av = null;
-
-
-
-                /*LayoutInflater layoutInflater = getLayoutInflater();
-                View myLayout = layoutInflater.inflate(R.layout.planetinfocard, null, false);
-
-                AnchorVisual visual = new AnchorVisual(arFragment, av.getCloudAnchor(), this);
-                visual.setScene(sceneForCamera);
-                visual.setView(myLayout);
-                Map<String, String> properties = av.getCloudAnchor().getAppProperties();
-                if (properties.containsKey("Shape")) {
-                    try {
-                        AnchorVisual.Shape savedShape = AnchorVisual.Shape.valueOf(properties.get("Shape"));
-                        visual.setShape(savedShape);
-                    } catch (IllegalArgumentException ex) {
-                        // Invalid shape property, keep default shape
-                    }
-                }
-                if (properties.containsKey("ComponentType")) {
-                    try {
-                        ComponentType ct = ComponentType.valueOf(properties.get("ComponentType"));
-                        visual.setComponentType(ct);
-                        Log.v("Selected component", visual.getComponentType().toString());
-                    } catch (IllegalArgumentException ex) {
-                        // Invalid shape property, keep default shape
-                    }
-                }
-                visual.setMovable(true);
-                av.setContext(this);
-                visual.render(arFragment);
-
-
-            */
-
-
-
-
-
-
-
-
 
                 Anchor localAnchor = session.createAnchor(previousPose);
                 if(localAnchor!=null){
@@ -276,11 +233,9 @@ public class CoarseRelocActivity extends FragmentActivity
     @Override
     public void onAnchorDiscovered(CloudSpatialAnchor cloudAnchor) {
         LayoutInflater layoutInflater = getLayoutInflater();
-        View myLayout = layoutInflater.inflate(R.layout.planetinfocard, null, false);
 
         AnchorVisual visual = new AnchorVisual(arFragment, cloudAnchor, this);
         visual.setScene(sceneForCamera);
-        visual.setView(myLayout);
         Map<String, String> properties = cloudAnchor.getAppProperties();
         if (properties.containsKey("Shape")) {
             try {
@@ -341,13 +296,6 @@ public class CoarseRelocActivity extends FragmentActivity
             if(AnchorVisual.selectedId.equals(anchor.getIdentifier())){
                 cloudAnchorManager.deleteAnchorAsync(anchor);
                 AnchorVisual.selectedId="";
-//                Intent mStartActivity = new Intent(this, CoarseRelocActivity.class);
-//                int mPendingIntentId = 123456;
-//                PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId,    mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
-//                AlarmManager mgr = (AlarmManager)this.getSystemService(this.ALARM_SERVICE);
-//                mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
-//                System.exit(0);
-//                Toast.makeText(this,"Restart your app. Selected anchor will disappear",Toast.LENGTH_LONG).show();
 
             }
         }

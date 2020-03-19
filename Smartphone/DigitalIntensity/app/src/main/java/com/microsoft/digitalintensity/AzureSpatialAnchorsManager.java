@@ -29,10 +29,10 @@ import java.util.concurrent.Future;
 
 class AzureSpatialAnchorsManager {
     // Set this string to the account ID provided for the Azure Spatial Service resource.
-    public static final String SpatialAnchorsAccountId = "bb0fcfb6-9c91-4fd2-a972-d7ee010d6188";
+    public static final String SpatialAnchorsAccountId = "4a73e145-d3b6-4918-89d6-7585b8311f29";
 
     // Set this string to the account key provided for the Azure Spatial Service resource.
-    public static final String SpatialAnchorsAccountKey = "Lvhp2kqSBKRoq8rLCtVsO1EYEmRuCtBE0LJWheBDi5Q=";
+    public static final String SpatialAnchorsAccountKey = "nEGWzBYgJtJU0ZkyszZ4dbbNO20lWgIU0QeQGUK/zO8=";
 
     // Log message tag
     private static final String TAG = "ASACloud";
