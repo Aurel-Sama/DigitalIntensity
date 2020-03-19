@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorHint"
         android:text="@string/hint_place_anchor"
-        android:textColor="@android:color/holo_orange_light"
+        android:textColor="@color/text"
         android:padding="3dp" />
 
     <Space
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Place your anchor"
-            android:textColor="@android:color/holo_orange_light"
+            android:textColor="@color/text"
             android:padding="3dp"
             />
 
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Choose a type"
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="match_parent"

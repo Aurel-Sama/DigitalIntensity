@@ -3,10 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorHint">#03A9F4</color>
+    <color name="colorHint">#4F000000</color>
     <color name="red">#FF0000</color>
     <color name ="endColor">#000046</color>
     <color name ="startColor">#1CB5E0</color>
     <color name ="limeGreen">#32CD32</color>
+    <color name="text">#FF9800</color>
 
 </resources>
