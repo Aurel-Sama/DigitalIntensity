@@ -165,6 +165,7 @@ class AnchorVisual {
     }
 
     private void recreateRenderableOnUiThread() {
+        anchor = this.getComponentType().toString().toLowerCase() + ".sfb";
         displayShape();
         if(previousPosition==null){
             previousPosition = transformableNode.getWorldPosition();
