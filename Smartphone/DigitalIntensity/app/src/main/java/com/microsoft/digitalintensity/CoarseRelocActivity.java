@@ -187,32 +187,6 @@ public class CoarseRelocActivity extends FragmentActivity
                 });
     }
 
-    public void onAnchorMoved(View view){
-        Session session = arFragment.getArSceneView().getSession();
-        for(AnchorVisual av : placedAnchorVisuals){
-
-            if(av!=null){
-                Pose previousPose = av.getLocalAnchor().getPose().compose(Pose.makeTranslation(10, 0, 0));
-
-                Anchor localAnchor = session.createAnchor(previousPose);
-                if(localAnchor!=null){
-                    av = new AnchorVisual(arFragment, localAnchor);
-                    av.setContext(arFragment.getContext());
-                    av.setMovable(true);
-                    av.setShape(AnchorVisual.Shape.Cube);
-                    av.render(arFragment);
-                }
-                else{
-                    Log.i("LocalAnchor","Je suis null");
-                }
-
-            }
-
-
-
-        }
-    }
-
     public void onDeleteSelectedAnchor(View view) {
         NearDeviceCriteria criteria = new NearDeviceCriteria();
         criteria.setDistanceInMeters(5.f);
@@ -254,7 +228,7 @@ public class CoarseRelocActivity extends FragmentActivity
                 // Invalid shape property, keep default shape
             }
         }
-        visual.setMovable(true);
+        visual.setMovable(false);
         placedAnchorVisuals.add(visual);
         visual.render(arFragment);
 

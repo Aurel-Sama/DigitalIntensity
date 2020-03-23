@@ -12,23 +12,19 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/move_anchor"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="onAnchorMoved"
-            android:text="Move Anchor" />
-        <Button
-            android:id="@+id/delete_selected_anchor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onDeleteSelectedAnchor"
-            android:text="Delete Anchor" />
-        <Button
             android:id="@+id/add_anchor"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
             android:onClick="onAddAnchorClicked"
             android:text="@string/add_anchor" />
+
+        <Button
+            android:id="@+id/delete_selected_anchor"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
+            android:onClick="onDeleteSelectedAnchor"
+            android:text="Delete Anchor" />
+
     </LinearLayout>
 
     <Space
@@ -49,18 +45,18 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/delete_nearby_anchors"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onDeleteAllNearbyAnchors"
-            android:text="@string/delete_nearby_anchors" />
-
-        <Button
             android:id="@+id/start_watcher"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
             android:onClick="onStartWatcherClicked"
             android:text="@string/start_watcher"/>
+
+        <Button
+            android:id="@+id/delete_nearby_anchors"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
+            android:onClick="onDeleteAllNearbyAnchors"
+            android:text="@string/delete_nearby_anchors" />
 
     </LinearLayout>
 

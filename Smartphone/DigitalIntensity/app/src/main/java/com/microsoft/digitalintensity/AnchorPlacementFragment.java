@@ -39,7 +39,7 @@ public class AnchorPlacementFragment extends Fragment {
     private HitResult savedHitResult;
 
 
-    private float translation =0f;
+    private float translation = 0f;
 
 
     @Nullable
@@ -51,8 +51,8 @@ public class AnchorPlacementFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        FragmentActivity activity = (FragmentActivity)context;
-        arFragment = (ArFragment)activity.getSupportFragmentManager().findFragmentById(R.id.ar_fragment);
+        FragmentActivity activity = (FragmentActivity) context;
+        arFragment = (ArFragment) activity.getSupportFragmentManager().findFragmentById(R.id.ar_fragment);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class AnchorPlacementFragment extends Fragment {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(visual!=null){
+                if (visual != null) {
                     visual.destroy();
                     visual = null;
 
@@ -89,7 +89,7 @@ public class AnchorPlacementFragment extends Fragment {
                     visual.setMovable(true);
                     visual.setShape(getSelectedShape());
                     visual.setComponentType((ComponentType) dropdownComponent.getSelectedItem());
-                    visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase()+".sfb");
+                    visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase() + ".sfb");
                     visual.render(arFragment);
 
                 }
@@ -113,11 +113,11 @@ public class AnchorPlacementFragment extends Fragment {
             }
 
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // TODO Auto-generated method stub
 
-                translation=translateSK.getProgress()/35f;
-                if(visual!=null){
+                translation = translateSK.getProgress() / 35f;
+                if (visual != null) {
                     visual.destroy();
                     visual = null;
 
@@ -128,7 +128,7 @@ public class AnchorPlacementFragment extends Fragment {
                     visual.setMovable(true);
                     visual.setShape(getSelectedShape());
                     visual.setComponentType((ComponentType) dropdownComponent.getSelectedItem());
-                    visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase()+".sfb");
+                    visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase() + ".sfb");
                     visual.render(arFragment);
 
                 }
@@ -172,7 +172,7 @@ public class AnchorPlacementFragment extends Fragment {
         visual.setMovable(true);
         visual.setShape(getSelectedShape());
         visual.setComponentType((ComponentType) dropdownComponent.getSelectedItem());
-        visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase()+".sfb");
+        visual.setAnchor(dropdownComponent.getSelectedItem().toString().toLowerCase() + ".sfb");
         visual.render(arFragment);
 
 
@@ -190,7 +190,7 @@ public class AnchorPlacementFragment extends Fragment {
     }
 
     private AnchorVisual.Shape getSelectedShape() {
-            return AnchorVisual.Shape.Cube;
+        return AnchorVisual.Shape.Cube;
     }
 
     private void onConfirmPlacementClicked(View view) {
