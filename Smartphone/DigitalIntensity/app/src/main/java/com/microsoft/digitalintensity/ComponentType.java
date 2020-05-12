@@ -1,5 +1,5 @@
 package com.microsoft.digitalintensity;
 
 public enum ComponentType {
-    HEART, ARROW
+    HEART, ARROW, SMILE, SAD
 }

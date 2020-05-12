@@ -64,3 +64,18 @@ sceneform.asset('sampledata/heart.fbx',
         'default',
         'sampledata/heart.sfa',
         'src/main/assets/heart')
+
+sceneform.asset('sampledata/smile.fbx',
+        'default',
+        'sampledata/smile.sfa',
+        'src/main/assets/smile')
+
+sceneform.asset('sampledata/sad.fbx',
+        'default',
+        'sampledata/sad.sfa',
+        'src/main/assets/sad')
+
+sceneform.asset('sampledata/laptop.fbx',
+        'default',
+        'sampledata/laptop.sfa',
+        'src/main/assets/laptop')

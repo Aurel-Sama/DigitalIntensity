@@ -144,49 +144,55 @@ class AnchorVisual {
     private void displayShape(){
         switch (shape) {
             case Cube:
-                ModelRenderable.builder()
-                        .setSource(context, Uri.parse(this.anchor))
-                        .build()
-                        .thenAccept(render -> {
-                            transformableNode.setLocalScale(new Vector3(5f,5f,5f));
-                            transformableNode.setRenderable(render);
-                        })
-                        .exceptionally(
-                                throwable -> {
-                                    Log.e("3DRender", "Unable to load Renderable.", throwable);
-                                    return null;
-                                });
-                break;
+                if(this.anchor.equals("smile.sfb")){
+                    ModelRenderable.builder()
+                            .setSource(context, Uri.parse(this.anchor))
+                            .build()
+                            .thenAccept(render -> {
+                                transformableNode.setLocalScale(new Vector3(0.2f,0.2f,0.2f));
+                                transformableNode.setRenderable(render);
+                            })
+                            .exceptionally(
+                                    throwable -> {
+                                        Log.e("3DRender", "Unable to load Renderable.", throwable);
+                                        return null;
+                                    });
+                    break;
+                }
+                else if(this.anchor.equals("sad.sfb")){
+                    ModelRenderable.builder()
+                            .setSource(context, Uri.parse(this.anchor))
+                            .build()
+                            .thenAccept(render -> {
+                                transformableNode.setLocalScale(new Vector3(0.02f,0.02f,0.02f));
+                                transformableNode.setRenderable(render);
+                            })
+                            .exceptionally(
+                                    throwable -> {
+                                        Log.e("3DRender", "Unable to load Renderable.", throwable);
+                                        return null;
+                                    });
+                    break;
+                }
+                else {
+                    ModelRenderable.builder()
+                            .setSource(context, Uri.parse(this.anchor))
+                            .build()
+                            .thenAccept(render -> {
+                                transformableNode.setLocalScale(new Vector3(5f, 5f, 5f));
+                                transformableNode.setRenderable(render);
+                            })
+                            .exceptionally(
+                                    throwable -> {
+                                        Log.e("3DRender", "Unable to load Renderable.", throwable);
+                                        return null;
+                                    });
+                    break;
+                }
 
             default:
                 throw new IllegalStateException("Invalid shape");
         }
-
-    }
-
-    private void displayText(){
-        Typeface typeface = ResourcesCompat.getFont(context, R.font.aldrich);
-        Button valuesBtn = view.findViewById(R.id.values_button);
-
-
-        TextView componentNameTV = view.findViewById(R.id.component_name);
-        TextView componentTypeTV = view.findViewById(R.id.component_type);
-        valuesBtn.setTypeface(typeface);
-        componentNameTV.setTypeface(typeface);
-        componentTypeTV.setTypeface(typeface);
-        componentNameTV.setText(cloudAnchor.getAppProperties().get("Message"));
-        componentTypeTV.setText(componentType.toString());
-
-        ViewRenderable.builder()
-                .setView(context, view)
-                .build()
-                .thenAccept(renderable -> {
-                    transformableNode.setLocalScale(new Vector3(0.30f,0.30f,0.30f));
-                    transformableNode.setRenderable(renderable);
-
-                });
-
-
 
     }
 
